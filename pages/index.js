@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import MyLayout from './component/layout';
 import Footer from './component/footer';
+import { getStaticPaths } from 'next';
 
 const inter = Inter({ subsets: ['latin'] })
 
