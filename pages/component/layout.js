@@ -1,7 +1,7 @@
 import Header from './header';
 import Link from 'next/link';
 import Image from 'next/image';
-import Session from "./session"
+import Session from "./session";
 
 export default function MyLayout(props) {
   return (
@@ -23,14 +23,14 @@ export default function MyLayout(props) {
               </li>
             </ul>
             <ul className="flex p-4 space-x-4">
-              <li>
+              {/* <li>
                 <Link href="/auth/signin" className="text-white bg-gray-400 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign In</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/auth/registration" className="text-white bg-gray-400 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registration</Link>
               </li>
             </ul>
-            {/* <Session/> */}
+            <Session/>
           </div>
         </div>
       </nav>

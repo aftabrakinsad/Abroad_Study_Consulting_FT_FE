@@ -11,20 +11,43 @@ export default function SignIn() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  const validateForm = () => {
+    if(!email && !password) {
+      setError('Please enter a email and password');
+      return false;
+    }
+    else if (!email) {
+      setError('Please enter a email');
+      return false;
+    }
+    else if (!password) {
+      setError('Please enter a password');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
   const handleSubmit = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
 
     try {
       setLoading(true);
-      
       const response = await axios.post('http://localhost:3001/admin/signin', { email, password });
-      // console.log('res: ' + response.email);
-
-      sessionStorage.setItem('email', response.data);
-      router.push('/admin/dashboard');
+      sessionStorage.setItem('email', response.data.email);
+      console.log('Response data:', response.data.email);
+      console.log('Session email:', sessionStorage.getItem('email'));
+      console.log('Full response:', response);
+      router.push('/');
     } catch (error) {
       console.log('error22: ' + error.message);
       setError('Invalid login');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -57,11 +80,12 @@ export default function SignIn() {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:ring focus:ring-blue-300">
-              Login
+              className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:ring focus:ring-blue-300"
+              disabled={loading}>
+              {loading ? 'Logging In...' : 'Login'}
             </button>
+            {error && <p className="text-red-500 mt-2">{error}</p>}
           </form>
-          {error && <p className="text-red-500 mt-2">{error}</p>}
         </div>
       </div>
       <Footer />

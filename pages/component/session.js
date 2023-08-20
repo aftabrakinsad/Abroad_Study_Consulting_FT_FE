@@ -13,20 +13,20 @@ export default function Session() {
             const session = sessionStorage.getItem('email');
             if (session) {
                 setEmail(sessionStorage.getItem('email'));
-            }          
+            }
         }
     }, []);
 
     const handleSignOut = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.get('http://localhost:3001/admin/signout')
-            console.log(response.data)
+            const response = await axios.post('http://localhost:3001/admin/signout');
+            console.log(response.data);
             sessionStorage.removeItem('email');
             setEmail(null);
-            router.push('/signin');
+            router.push('/auth/signin');
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     };
     return (
@@ -34,7 +34,7 @@ export default function Session() {
         {email !== null ? (
         <>
             <div className="flex md:order-2">
-                <a href="#" className="pr-3 pt-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{email}</a>
+                {/* <a href="#" className="pr-3 pt-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{email}</a> */}
                 <button  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={handleSignOut}>Sign out</button>
       
                 <Link href="/admin/dashboard" className="text-white bg-gray-400 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">DashBoard</Link>    
