@@ -1,7 +1,7 @@
 import Header from './header';
 import Link from 'next/link';
 import Image from 'next/image';
-import Session from "./session";
+import Session from "../api/session";
 
 export default function MyLayout(props) {
   return (
