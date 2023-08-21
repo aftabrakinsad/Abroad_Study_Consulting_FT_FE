@@ -3,5 +3,8 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/auth/signin": "pages/auth/signin.js"
+  "/admin/dashboard": "pages/admin/dashboard.js",
+  "/admin/dashboard/addadmin": "pages/admin/dashboard/addadmin.js",
+  "/admin/dashboard/getAdmins": "pages/admin/dashboard/getAdmins.js",
+  "/admin/dashboard/findusers": "pages/admin/dashboard/findusers.js"
 }

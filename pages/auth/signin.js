@@ -39,10 +39,7 @@ export default function SignIn() {
       setLoading(true);
       const response = await axios.post('http://localhost:3001/admin/signin', { email, password });
       sessionStorage.setItem('email', response.data.email);
-      console.log('Response data:', response.data.email);
-      console.log('Session email:', sessionStorage.getItem('email'));
-      console.log('Full response:', response);
-      router.push('/');
+      router.push('/admin/dashboard');
     } catch (error) {
       console.log('error22: ' + error.message);
       setError('Invalid login');
