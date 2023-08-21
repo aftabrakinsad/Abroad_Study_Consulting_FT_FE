@@ -37,15 +37,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/admin/dashboard/addadmin.js"
     ],
-    "/admin/dashboard/findusers": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/admin/dashboard/findusers.js"
-    ],
     "/admin/dashboard/getAdmins": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/admin/dashboard/getAdmins.js"
+    ],
+    "/auth/signin": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/auth/signin.js"
     ]
   },
   "ampFirstPages": []
