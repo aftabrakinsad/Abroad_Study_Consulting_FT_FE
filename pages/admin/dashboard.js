@@ -28,8 +28,9 @@ const Dashboard = () => {
   };
 
   return (
+    
     <>
-      <SessionCheck />
+    <SessionCheck/>
       <MyLayout title="Admin Dashboard" />
       <AdminDrawer />
       <div class="pt-9 sm:ml-64">

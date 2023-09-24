@@ -58,7 +58,7 @@ const AdminsPage = () => {
                 <td className="border p-2">{admin.address}</td>
                 <td className="border p-2">
                   <button className="text-blue-600">Edit</button>
-                  <button className="text-red-600 ml-2" onClick={() => handleDeleteAdmin(admin.id)}>Delete</button>
+                  <button className="text-red-600 ml-4" onClick={() => handleDeleteAdmin(admin.id)}>Delete</button>
                 </td>
               </tr>
             ))}
